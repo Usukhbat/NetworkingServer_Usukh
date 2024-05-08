@@ -19,6 +19,12 @@ public class NetworkingServer {
             try{
                 System.out.println("Waiting for connect request...");
                 client = server.accept();
+                System.out.println("Connect request is accepted...");
+                String clientHost = client.getInetAddress().getHostAddress();
+                int clientPort = client.getPort();
+                System.out.println("Client host = " + clientHost + "Client port = " + clientPort);
+                InputStream clientIn = client.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(clientIn));
             } catch (IOException ie){
                 System.out.println("ett lämpligt error meddelande");
             }
